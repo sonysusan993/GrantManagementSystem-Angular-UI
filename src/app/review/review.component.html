@@ -1,0 +1,49 @@
+ <br/><h1 style="color:#a4b9ce;">Review the applications</h1>
+<p-table [value]="applicantDetails"  dataKey="applicantId" editMode="row">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="display: none;">Applicant Id</th>
+            <th>Applicant Name</th>
+            <th>Program Code</th>
+            <th>Country</th>
+            <th>Application Status</th>
+            <th>Reviewer Status</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-applicantDetail let-editing="editing" let-ri="rowIndex">
+        <tr [pEditableRow]="applicantDetail" [style.background]="applicantDetail.isHighlight ? applicantDetail.color : 'White'">
+            <td style="display: none;">{{applicantDetail.applicantId}}</td>
+            <td>
+             {{applicantDetail.applicantName}}
+            </td>
+            <td>
+             {{applicantDetail.programCode}}
+            </td>
+          <td>
+              {{applicantDetail.country}}
+        </td>
+        <td>
+         {{applicantDetail.applicationStatus}}
+        </td>
+            <td >
+                <p-cellEditor>
+                    <ng-template pTemplate="input" >
+                        <p-dropdown [(ngModel)]="applicantDetail.reviewerStatus" [options]="status" ></p-dropdown>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        {{applicantDetail.reviewerStatus}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td >
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                    class="buttonnew" (click)="onRowEditInit(applicantDetail)" style="margin-right: .5em"></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                    class="buttonnew" style="margin-right: .5em" (click)="onRowEditSave(applicantDetail)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                    class="buttonnew" (click)="onRowEditCancel(applicantDetail, ri)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

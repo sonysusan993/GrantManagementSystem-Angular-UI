@@ -1,0 +1,75 @@
+<html>
+  <head>
+  </head>
+<body>
+  <div class="div">
+    <br/><br/><br/>
+  <h3 style="text-align: center; color: #125699;">Register </h3>
+  <h3 style="text-align: center; color: #125699;">Sign up for applying grant programs</h3>
+  <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+    <table class="custtable">
+    <tr>
+      <label for="email"><b>Email</b></label>
+    </tr>
+    <tr>
+      <input type="text" placeholder="Enter Email" name="email" id="email" formControlName="email" required>
+      <div *ngIf="submitted && registerFormControl.email.errors" class="text-danger">
+        <div *ngIf="registerFormControl.email.errors.required">Email is required</div>
+        <div *ngIf="registerFormControl.email.errors.email">Email must be a valid email address</div>
+      </div>
+    </tr>
+    <tr>
+      <label for="firstname"><b>First Name</b></label>
+    </tr>
+  <tr>
+      <input type="text" placeholder="Enter First Name" name="firstname" id="firstname" formControlName="firstname"
+        required>
+      <div *ngIf="submitted && registerFormControl.firstname.errors" class="text-danger">
+        <div *ngIf="registerFormControl.firstname.errors.required">First Name is required</div>
+      </div>
+    </tr>
+    <tr>
+      <label for="lastname"><b>Last Name</b></label>
+    </tr>
+   <tr>
+      <input type="text" placeholder="Enter Last Name" name="lastname" id="lastname" formControlName="lastname"
+        required>
+      <div *ngIf="submitted && registerFormControl.lastname.errors" class="text-danger">
+        <div *ngIf="registerFormControl.lastname.errors.required">Last Name is required</div>
+      </div>
+    </tr>
+    <tr>
+      <label for="psw"><b>Password</b></label>
+    </tr>
+  <tr>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" formControlName="password" required>
+      <div *ngIf="submitted && registerFormControl.password.errors" class="text-danger">
+        <div *ngIf="registerFormControl.password.errors.required">Password is required</div>
+      </div>
+  </tr>
+  <tr>
+      <label for="psw-repeat"><b>Confirm Password</b></label>
+  </tr>
+  <tr>
+      <input type="password" placeholder="Repeat Password" 
+        formControlName="confirmpassword" required>
+      <div *ngIf="submitted && registerFormControl.confirmpassword.errors" class="text-danger">
+        <div *ngIf="registerFormControl.confirmpassword.errors.required">Confirm Password is required</div>
+        <div *ngIf="registerFormControl.confirmpassword.errors.mustMatch">Passwords must match</div>
+      </div>
+    </tr>
+      <tr class="center">
+      <button type="submit" class="registerbtn">Register</button>
+      </tr>
+    <tr>
+      <hr  class="hr">
+      </tr>
+    <div class="container signin">
+      <p>Already have an account? <a routerLink="/login">Sign in</a>.</p>
+    </div>
+    </table>
+  </form>
+</div>
+</body>
+
+</html>

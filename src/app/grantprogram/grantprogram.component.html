@@ -1,0 +1,137 @@
+<br/><h1 style="color:#a4b9ce ;">List of programs
+<button type ="button" class="button" (click)="createclick()" *ngIf="isHiddendiv">Create Grant Programs</button><br>
+</h1>
+<div *ngIf="!isHiddendiv">
+    <form [formGroup]="programform">
+    <table>
+        <tr>
+     <td class="input">
+     <input type="text"placeholder="Name" formControlName="programName"/>
+     <div *ngIf="submitted && programformControl.programName.errors" class="text-danger">
+        <div *ngIf="programformControl.programName.errors.required">Program Name is required</div>
+      </div>
+     </td>
+     <td class="input">
+        <input type="text"placeholder="Code" formControlName="programCode"/>
+        <div *ngIf="submitted && programformControl.programCode.errors" class="text-danger">
+            <div *ngIf="programformControl.programCode.errors.required">Program code is required</div>
+          </div>
+    </td>
+    <td class="input">
+        <input type="text" placeholder="Start Date"  onfocus="(this.type='date')" formControlName="startDate"/>
+        <div *ngIf="submitted && programformControl.startDate.errors" class="text-danger">
+            <div *ngIf="programformControl.startDate.errors.required">Start date is required</div>
+          </div>
+    </td>
+    <td class="input"><input type="text" placeholder="End Date" onfocus="(this.type='date')" formControlName="endDate"/>
+        <div *ngIf="submitted && programformControl.endDate.errors" class="text-danger">
+            <div *ngIf="programformControl.endDate.errors.required">End date is required</div>
+            <div *ngIf="programformControl.endDate.errors.mustGreater">End date must be greater than start date</div>
+          </div>
+    </td>
+    <td class="input">
+      <select name="status" formControlName="status" class="ddl">
+        <option value="" disabled selected>Select Status</option>
+        <option value="Active">Active</option>
+        <option value="InActive">InActive</option>
+      </select>
+      <div *ngIf="submitted && programformControl.status.errors" class="text-danger">
+        <div *ngIf="programformControl.status.errors.required">Status is required</div>
+      </div>
+    </td>
+    <td class="input">
+    <button type ="button"  class="buttonnew" (click)="save()" >Save</button> &nbsp;
+    <button type ="reset"  class="buttonnew" (click)="cancel()">Cancel</button>
+   </td>
+     </tr>
+     <tr>
+    <td colspan="6">
+     <p style="color: Red;font-size: 10px;">{{ errorMessage }}</p>
+    </td>
+     <tr>
+    </table>
+</form>
+</div>
+<p-table [value]="programs"  dataKey="grantId" editMode="row" >
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="display: none;">Id</th>
+            <th>Program Name</th>
+            <th>Program Code</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-program let-editing="editing" let-ri="rowIndex" >
+        <tr [pEditableRow]="program" [style.background]="program.isHighlight ? program.color : 'White'"> 
+            <td style="display: none;">{{program.grantId}}</td>
+            <td>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <input pInputText type="text" [(ngModel)]="program.programName">
+                    <p *ngIf="isEmpty(program.programName)" class="error">Enter name</p>
+                </ng-template>
+                <ng-template pTemplate="output">
+                    {{program.programName}}
+                </ng-template>
+            </p-cellEditor>
+            </td>
+            <td>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <input pInputText type="text" [(ngModel)]="program.programCode">
+                    <p *ngIf="isEmpty(program.programCode)" class="error">Enter code</p>
+                </ng-template>
+                <ng-template pTemplate="output">
+                    {{program.programCode}}
+                </ng-template>
+            </p-cellEditor>
+            </td>
+          <td>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <input pInputText type="datetime-local" [(ngModel)]="program.startDate">
+                    <p *ngIf="isEmpty(program.startDate)" class="error">Enter start date</p>
+                </ng-template>
+                <ng-template pTemplate="output">
+                    {{program.startDate}}
+                </ng-template>
+            </p-cellEditor>
+        </td>
+        <td>
+            <p-cellEditor>
+                <ng-template pTemplate="input">
+                    <input pInputText type="datetime-local" [(ngModel)]="program.endDate">
+                    <p *ngIf="isEmpty(program.endDate)" class="error">Enter end date</p>
+                </ng-template>
+                <ng-template pTemplate="output">
+                    {{program.endDate}}
+                </ng-template>
+            </p-cellEditor>
+        </td>
+            <td>
+                <p-cellEditor>
+                    <ng-template pTemplate="input" >
+                        <p-dropdown [(ngModel)]="program.status" [options]="status" [style]="{'hight':'10px'}" ></p-dropdown>
+                    </ng-template>
+                    <ng-template pTemplate="output">
+                        <!-- {{((program.status == true )? "Active" : "InActive")}} -->
+                        {{program.status}}
+                    </ng-template>
+                </p-cellEditor>
+            </td>
+            <td >
+                <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                    class="buttonnew" (click)="onRowEditInit(program)" style="margin-right: .5em"></button>
+                    <button *ngIf="!editing" pButton type="button" icon="pi pi-trash"
+                    class="buttonnew" (click)="onRowDelete(program)" ></button>
+                <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                    class="buttonnew" style="margin-right: .5em" (click)="onRowEditSave(program)"></button>
+                <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                    class="buttonnew" (click)="onRowEditCancel(program, ri)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

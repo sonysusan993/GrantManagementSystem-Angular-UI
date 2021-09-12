@@ -1,0 +1,9 @@
+.heading {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    text-align :center;
+    color: #125699;
+    font-size: 30px;
+    margin-top: 25px; 
+    position: fixed;
+    margin-left: 450px;
+  }

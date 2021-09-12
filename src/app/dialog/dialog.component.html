@@ -1,0 +1,88 @@
+<div class="color">
+<h2 mat-dialog-title>{{action}}</h2>
+<!-- <pre id="json" class="color"></pre> -->
+</div>
+<form [formGroup]="applicantForm">
+<table class="styled-table ">
+    <tr class="styled-tr">
+        <td class="styled-td"><label><b>Program</b></label></td>
+    <td class="styled-td"> <input type="text" name="Program" id="Program" formControlName="Program" [readonly]="true" class="input"></td>
+    </tr>
+    <tr class="styled-tr">
+        <td colspan="2" style="background-color: #125699;color: white;"><label><b>Applicant Details</b></label></td>
+     </tr>
+     <tr class="styled-tr">
+        <td class="styled-td"><label ><b>Dateofbirth</b></label></td>
+        <td class="styled-td"> <input type="text" name="Program" id="Dateofbirth" formControlName="Dateofbirth" [readonly]="true" class="input"></td>
+     </tr>
+     <tr class="styled-tr">
+        <td class="styled-td"><label ><b>Country</b></label></td>
+        <td class="styled-td"> <input type="text" name="Country" id="Country" formControlName="Country" [readonly]="true" class="input"></td>
+     </tr>
+     <tr class="styled-tr">
+        <td class="styled-td"><label ><b>Disable</b></label></td>
+        <td class="styled-td"> <input type="text" name="Disable" id="Disable" formControlName="Disable" [readonly]="true" class="input"></td>
+    </tr>
+    <tr class="styled-tr">
+        <td colspan="2" style="background-color: #125699; color: white;"><label><b>Contact Details</b></label></td>
+     </tr>
+     <tr class="styled-tr">
+        <td class="styled-td"><label ><b>Address</b></label></td>
+        <td class="styled-td"> <input type="text" name="Address" id="Address" formControlName="Address" [readonly]="true" class="input"></td>
+    </tr>
+    <tr class="styled-tr">
+        <td class="styled-td"><label ><b>City</b></label></td>
+        <td class="styled-td"> <input type="text" name="City" id="City" formControlName="City" [readonly]="true" class="input"></td>
+    </tr>
+    <tr class="styled-tr">
+        <td class="styled-td"><label ><b>PostalCode</b></label></td>
+        <td class="styled-td"> <input type="text" name="PostalCode" id="PostalCode" formControlName="PostalCode" [readonly]="true" class="input"></td>
+    </tr>
+    <tr class="styled-tr">
+        <td class="styled-td"><label ><b>Mobile</b></label></td>
+        <td class="styled-td"> <input type="text" name="Address" id="Mobile" formControlName="Mobile" [readonly]="true" class="input"></td>
+    </tr>
+    <tr class="styled-tr">
+        <td class="styled-td"><label ><b>Phone</b></label></td>
+        <td class="styled-td"> <input type="text" name="Phone" id="Phone" formControlName="Phone"[readonly]="true" class="input"></td>
+    </tr>
+    </table>
+    <div class="form">
+    <table class="styled-table1">
+        <tr class="styled-tr">
+            <td colspan="2" style="background-color: #125699; color: white;"><label><b>Educational Details</b></label>
+            </td>
+         </tr>
+     <tr class="styled-tr">
+        <td colspan="2">
+        <p-table #dt [value]="educationdetails"  editMode="row">
+            <ng-template pTemplate="header">
+                <tr class="styled-tr">
+                    <th>Course Name</th>
+                    <th>Country</th>
+                    <th>Institution Name</th>
+                    <th>Year Of Completion</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-educationdetail let-editing="editing" let-ri="rowIndex" >
+                <tr [pEditableRow]="educationdetail" class="styled-tr">
+                    <td>
+                            {{educationdetail.coursename}}
+                    </td>
+                    <td>
+                            {{educationdetail.country}}
+                    </td>
+                    <td>
+                            {{educationdetail.institutionname}}
+                   </td>
+                   <td>
+                         {{educationdetail.yearofcompletion}}
+                  </td>                               
+                </tr> 
+            </ng-template>
+        </p-table>
+        </td>
+     </tr>
+    </table>
+<button class="buttonsure" [mat-dialog-close]="true">Sure</button>
+<button class="buttonback" [mat-dialog-close]="false">Go Back</button>

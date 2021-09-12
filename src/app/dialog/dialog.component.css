@@ -1,0 +1,41 @@
+.color
+{
+    background-color: #125699;
+    color: white;
+}
+.buttonsure
+{
+    background-color: #125699;
+    color: white;
+    width:50px;
+    height:30px;
+    float: left;
+}
+.buttonback
+{
+    background-color: #125699;
+    color: white;
+    width:150px;
+    height:30px;
+    float: right;
+}
+.styled-table {
+    background-color: thistle;
+}
+.styled-table1 {
+    background-color: thistle;
+}
+.styled-tr{
+ text-align: center;
+ border: 1px solid black;
+}
+.styled-td{
+    width:550px;
+   }
+.input{
+    width :250px;
+    }
+.inputs1
+{
+    background-color : rgb(179, 176, 176);
+}

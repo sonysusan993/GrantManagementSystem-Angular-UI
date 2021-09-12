@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div class="sidenav">
+  <a (click) = "grantprogram()" class="glow">Grant Program</a>
+  <a (click) = "reviewprogram()">Review</a>
+  <div class="mid">
+  <a>Color Codes</a>
+  <span class="dotlightskyblue">
+  <Label class="label">NEW</Label></span>
+  <br/><br/>
+  <span class="dotpink">
+  <Label class="label">EDIT</Label></span>
+  <br/><br/>
+  <span class="dotred">
+  <Label class="label">DELETE</Label></span>
+  </div>
+  <div class="bottom">
+  <a (click) = "logout()">Logout</a>
+  </div>
+</div>
+
+<div class="main">
+  <app-grantprogram *ngIf="!isHiddenprogram"></app-grantprogram>
+  <app-review *ngIf="!isHiddenreview"></app-review>
+</div>
+</body>
+</html> 

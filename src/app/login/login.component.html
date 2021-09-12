@@ -1,0 +1,49 @@
+<html>
+<body>
+<div class="div">
+  <br/><br/><br/>
+<h2 style="text-align: center; color: #125699;">Login </h2>
+<form #loginForm ="ngForm">
+    <table class="custtable">
+      <tr><th><br></th><th><br></th><th><br></th></tr>
+      <tr [class.has-error]="emailcontrol.invalid && emailcontrol.touched" class="form-group">
+          <td class="tdcenter">
+            <label for="email" class="control-label"><b>Email Address</b></label>
+          </td>
+
+          <td class="tdcenter">
+          <input type="email" placeholder="Enter Email Address Here" id= "email" name="email" 
+          [(ngModel)]="email" #emailcontrol="ngModel"  required ngModel email="true" class="form-control"> 
+          <span class="help-block" *ngIf="emailcontrol.invalid && emailcontrol.touched">Please Enter Valid Email address</span>
+          </td>    
+          <td></td>
+      </tr><tr><th><br></th><th><br></th><th><br></th></tr>
+      <tr [class.has-error]="passwordControl.invalid && passwordControl.touched" class="form-group">
+        <td class="tdcenter">
+          <label for="password"class="control-label"><b>Password</b></label>
+        </td>
+        <td class="tdcenter">
+          <input type="password" placeholder="Enter Password Here" name="password" 
+          [(ngModel)]="password" #passwordControl ="ngModel" required class="form-control">
+          <span class="help-block" *ngIf ="passwordControl .invalid && passwordControl.touched">
+            Please Enter Password
+          </span>
+        </td>
+        <td></td>
+      </tr><tr><th><br></th><th><br></th><th><br></th></tr>
+      <tr>
+        <td class="tdright">
+        <button (click)="OnLogin()" class="button" [disabled]= loginForm.invalid>Login</button>
+        </td>
+        <td class="tdcenter">
+        <a routerLink="/register">Register</a>
+        </td>
+        <td></td>
+      </tr>
+      <tr><th><br><br></th>
+        <th></th><th></th></tr>
+    </table>
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<div>
+    <form  [formGroup]="applicantForm">
+        <div class="form">
+            <hr class="hr"/>
+            <a href="#" class="btn btn-info btn-lg logout" (click) = "logout()">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+              </a>
+            <!-- <h2 style="text-align: center; color: white;">Please fill the form and submit</h2> -->
+            <table class="styled-table ">
+                <tr class="styled-tr">
+                    <td ><label ><b>Grant Program</b></label></td>
+                    <td class="styled-td" ><p-dropdown [style]="{'width':'250px'}" [options]="grants"  formControlName="grantid" id="grantid"></p-dropdown>
+                        <div *ngIf="submitted && applicantFormControl.grantid.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.grantid.errors.required">Please select program</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td colspan="2" style="background-color: #125699;color: white;"><label><b>Applicant Details</b></label></td>
+                 </tr>
+                 <tr class="styled-tr">
+                     <td ><label ><b>First Name</b></label></td>
+                     <td class="styled-td"><input type="text" formControlName="firstname" class="inputs1" [readonly]="true"/>
+                         <div *ngIf="submitted && applicantFormControl.firstname.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.firstname.errors.required">Please add first name</div>
+                        </div>
+                    </td>
+                 </tr>
+                 <tr class="styled-tr">
+                     <td ><label ><b>Last Name</b></label></td>
+                     <td class="styled-td" ><input type="text" formControlName="lastname" class="inputs1" [readonly]="true"/>
+                        <div *ngIf="submitted && applicantFormControl.lastname.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.lastname.errors.required">Please add last name</div>
+                        </div>
+                    </td>
+                 </tr>
+                 <tr class="styled-tr">
+                    <td ><label ><b>Email</b></label></td>
+                    <td class="styled-td" ><input type="text" formControlName="email" class="inputs1" [readonly]="true"/>
+                        <div *ngIf="submitted && applicantFormControl.email.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.email.errors.required">Please add email name</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>Date Of Birth</b></label></td>
+                    <td class="styled-td" ><input type="date" formControlName="dateofbirth" class="inputs"/>
+                        <div *ngIf="submitted && applicantFormControl.dateofbirth.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.dateofbirth.errors.required">Please add date of birth</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>Country</b></label></td>
+                    <td class="styled-td" ><p-dropdown [style]="{'width':'250px'}" [options]="countries"  formControlName="countryid" id ="countryid" (onChange)="onChangeCountry($event)"></p-dropdown>
+                        <div *ngIf="submitted && applicantFormControl.countryid.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.countryid.errors.required">Please select country</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>State</b></label></td>
+                    <td class="styled-td" ><p-dropdown [style]="{'width':'250px'}" [options]="states"  formControlName="stateid" id="stateid"></p-dropdown>
+                        <div *ngIf="submitted && applicantFormControl.stateid.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.stateid.errors.required">Please select state</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>Physically Disabled?</b></label></td>
+                    <td class="styled-td"> 
+                    <input type="radio"  formControlName="disable" value="yes">
+                    <label for="Yes">Yes</label>&nbsp;
+                    <input type="radio" formControlName="disable" value="no">
+                    <label for="no">NO</label>
+                    <div *ngIf="submitted && applicantFormControl.disable.errors" class="text-danger">
+                        <div *ngIf="applicantFormControl.disable.errors.required">Please select disability</div>
+                    </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td colspan="2" style="background-color: #125699; color: white;"><label><b>Contact Details</b></label></td>
+                 </tr>
+                 <tr class="styled-tr">
+                    <td ><label ><b>Address</b></label></td>
+                    <td class="styled-td"><input type="text" formControlName="address" class="inputs"/>
+                        <div *ngIf="submitted && applicantFormControl.address.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.address.errors.required">Please add address</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>City</b></label></td>
+                    <td class="styled-td"><input type="text" formControlName="city" class="inputs"/>
+                        <div *ngIf="submitted && applicantFormControl.city.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.city.errors.required">Please add city</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>Postal Code</b></label></td>
+                    <td class="styled-td"><input type="text" formControlName="postalcode" class="inputs"/>
+                        <div *ngIf="submitted && applicantFormControl.postalcode.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.postalcode.errors.required">Please add postal code</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>Mobile</b></label></td>
+                    <td class="styled-td"><input type="text" formControlName="mobile" class="inputs"/>
+                        <div *ngIf="submitted && applicantFormControl.mobile.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.mobile.errors.required">Please add mobile</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr class="styled-tr">
+                    <td ><label ><b>Phone</b></label></td>
+                    <td class="styled-td"><input type="text" formControlName="phone" class="inputs"/>
+                        <div *ngIf="submitted && applicantFormControl.phone.errors" class="text-danger">
+                            <div *ngIf="applicantFormControl.phone.errors.required">Please add phone</div>
+                        </div>
+                    </td>
+                </tr>
+                </table>
+            </div>
+                </form>
+                <div class="form">
+                <table class="styled-table1">
+                    <tr class="styled-tr">
+                        <td colspan="2" style="background-color: #125699; color: white;"><label><b>Educational Details</b></label>
+                            <button pButton type="button"icon="pi pi-plus" class="btn"
+                             pAddRow [table]="dt" [newRow]="newRow()"></button>
+                            
+                        </td>
+                     </tr>
+                 <tr class="styled-tr">
+                    <td colspan="2">
+                    <p-table #dt [value]="educationdetails"  editMode="row">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Country</th>
+                                <th>Institution Name</th>
+                                <th>Year Of Completion</th>
+                                <th>Actions</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-educationdetail let-editing="editing" let-ri="rowIndex" >
+                            <tr [pEditableRow]="educationdetail">
+                                <td>
+                                <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <input pInputText type="text" [(ngModel)]="educationdetail.coursename">
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                        {{educationdetail.coursename}}
+                                    </ng-template>
+                                </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input" >
+                                            <p-dropdown [(ngModel)]="educationdetail.country" [options]="countries" [style]="{'height':'29px'}" ></p-dropdown>
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{getcountry(educationdetail.country)}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input pInputText type="text" [(ngModel)]="educationdetail.institutionname">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{educationdetail.institutionname}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                               </td>
+                               <td>
+                                <p-cellEditor>
+                                    <ng-template pTemplate="input">
+                                        <input pInputText type="number" [(ngModel)]="educationdetail.yearofcompletion">
+                                    </ng-template>
+                                    <ng-template pTemplate="output">
+                                        {{educationdetail.yearofcompletion}}
+                                    </ng-template>
+                                </p-cellEditor>
+                              </td>                               
+                                <td >
+                                    <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                                        class="btn" (click)="onRowEditInit(educationdetail)" style="margin-left: 20px;"></button>&nbsp;
+                                        <button *ngIf="!editing" pButton type="button" icon="pi pi-trash"
+                                        class="btn" (click)="onRowDelete(ri)" ></button>
+                                    <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                                        class="btn"  (click)="onRowEditSave(educationdetail)" style="margin-left: 20px;"></button>&nbsp;
+                                    <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                                        class="btn" (click)="onRowEditCancel(educationdetail, ri)"></button>
+                                </td>
+                            </tr> 
+                        </ng-template>
+                    </p-table>
+                    </td>
+                 </tr>
+                 <tr class="styled-tr">
+                     <td colspan="2">
+                         <button (click)="OnSubmit()"  class="btn1">Submit</button>&nbsp;
+                         <button (click)="OnCancel()"  class="btn1">Cancel</button>
+                    </td>
+                 </tr>
+                </table>
+</div> 

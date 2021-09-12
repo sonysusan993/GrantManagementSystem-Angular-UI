@@ -1,0 +1,27 @@
+.custtable
+{
+  align-items: center;
+  border :black;
+  border: 5px solid #125699;
+  padding: 50px;
+  margin: auto;
+  width: 600px;
+  height: 150px;
+}
+.tdcenter {
+text-align: center;
+}
+.tdright {
+text-align: right;
+}
+.button
+{
+background-color: #125699;
+border-radius: 10px;
+width: 100px;
+color: white;
+}
+.div
+{
+  overflow: hidden;
+}
