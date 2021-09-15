@@ -2,7 +2,7 @@
 {
   align-items: center;
   border :black;
-  border: 5px solid #125699;
+  border: 5px solid hsl(347, 79%, 34%);
   padding: 50px;
   margin: auto;
   width: 600px;
