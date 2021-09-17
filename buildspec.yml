@@ -1,17 +1,41 @@
-version: 0.2
+# version: 0.2
 
+# phases:
+#   install:
+#     runtime-versions:
+#       nodejs: 10
+#     commands:
+#       - echo Installing angular cli...
+#       - npm install -g @angular/cli
+#       - npm install --save-dev @angular-devkit/build-angular
+#   build:
+#     commands:
+#       - echo Build started...
+#       - ng build 
+# artifacts:
+#   files:
+#     - dist/**/*
+
+version: 0.2
+ 
 phases:
   install:
     runtime-versions:
-      nodejs: 10
+      nodejs: 14
+  pre_build:
     commands:
-      - echo Installing angular cli...
+      - echo Installing source NPM dependencies...
+      - npm install
       - npm install -g @angular/cli
-      - npm install --save-dev @angular-devkit/build-angular
   build:
     commands:
-      - echo Build started...
-      - ng build 
+      - echo Build started on `date`
+      - ng build --prod --aot
+  post_build:
+     commands:
+          - echo Build completed on `date`
 artifacts:
   files:
-    - dist/**/*
+      - '**/*'
+  base-directory: 'dist*'
+  discard-paths: yes
