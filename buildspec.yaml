@@ -8,7 +8,7 @@ phases:
       - echo Installing angular cli...
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash . ~/.nvm/nvm.sh
       - nvm install node
       - node --version
       - npm install ng-common
