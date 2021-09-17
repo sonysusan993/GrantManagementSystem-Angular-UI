@@ -16,10 +16,9 @@ phases:
   build:
     commands:
       - echo Build started...
-      - ng build --prod --optimization=false 
+      - ng serve 
 artifacts:
   files:
-    #  - dist/**/*
-     - '**/*'
-  base-directory: codebuild/output/src199679067/src
+      - dist/**/*
+    
    
