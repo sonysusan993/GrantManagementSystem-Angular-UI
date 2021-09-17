@@ -13,7 +13,6 @@ phases:
       - npm install typescript@3.5.3
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
-      - npm audit fix
   build:
     commands:
       - echo Build started...
