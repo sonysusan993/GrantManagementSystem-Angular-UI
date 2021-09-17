@@ -13,6 +13,9 @@ phases:
       - npm install typescript@3.5.3
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
+      - ng update @angular/cli @angular/core
+      - ng update
+      - ng serve
   build:
     commands:
       - echo Build started...
