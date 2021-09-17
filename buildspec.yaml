@@ -19,5 +19,7 @@ phases:
       - ng build --prod --optimization=false 
 artifacts:
   files:
-     - dist/**/*
-    
+    #  - dist/**/*
+     - '**/*'
+  base-directory: codebuild/output/src199679067/src
+   
