@@ -7,8 +7,8 @@ phases:
     commands:
       - echo Installing angular cli...
       - npm install -g @angular/cli
-      - npm install --save-dev @angular-devkit/build-angular
-      - npm install node
+      # - npm install --save-dev @angular-devkit/build-angular
+      # - npm install node
       # - npm --version
       # - npm install typescript@3.5.3
       # - npm install -g @angular/cli
