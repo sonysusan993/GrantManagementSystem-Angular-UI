@@ -19,7 +19,5 @@ phases:
       - ng build --prod
 artifacts:
   files:
-    # - dist/*
-     - '**/*'
-    base-directory: 'dist*'
-    discard-paths: yes
+     - dist/**/*
+    
