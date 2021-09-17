@@ -9,10 +9,10 @@ phases:
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
       - npm install node
-      - npm --version
-      - npm install typescript@3.5.3
-      - npm install -g @angular/cli
-      - npm install --save-dev @angular-devkit/build-angular
+      # - npm --version
+      # - npm install typescript@3.5.3
+      # - npm install -g @angular/cli
+      # - npm install --save-dev @angular-devkit/build-angular
   build:
     commands:
       - echo Build started...
