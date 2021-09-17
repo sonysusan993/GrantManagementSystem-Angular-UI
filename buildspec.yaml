@@ -8,9 +8,8 @@ phases:
       - echo Installing angular cli...
       - npm install -g @angular/cli
       - npm install --save-dev @angular-devkit/build-angular
-      - curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-      - nvm install node
-      - node --version
+      - npm install node
+      - echo node --version
       - npm install ng-common
       - npm --version
       - npm install typescript@3.5.3
